@@ -1,7 +1,10 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
-# require 'sqlite3'
+require 'sinatra/activerecord'
+
+set :database, "sqlite3:./database/barbershop.db"
+
 
 #examle access to db
 # def get_db 
