@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407145023) do
+ActiveRecord::Schema.define(version: 20160407194001) do
 
   create_table "Barbers", force: :cascade do |t|
     t.text     "name"
@@ -20,10 +20,13 @@ ActiveRecord::Schema.define(version: 20160407145023) do
   end
 
   create_table "Clients", force: :cascade do |t|
-    t.text "name_user"
-    t.text "phone"
-    t.text "barber"
-    t.text "color"
+    t.text     "name_user"
+    t.text     "phone"
+    t.text     "barber"
+    t.text     "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "datestamp_visit"
   end
 
 end
