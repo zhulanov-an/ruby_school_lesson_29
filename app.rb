@@ -13,7 +13,30 @@ class Barber < ActiveRecord::Base
 
 end
 
-get '/' do
+before do
 	@barbers = Barber.all
+end
+
+get '/' do
 	erb :index
+end
+
+get '/visit' do
+	erb :visit
+end
+
+post '/visit' do
+	name_user = params[:username]
+	phone = params[:phone]
+	datetime = params[:datetime]
+	barber = params[:barber]
+	color = params[:color]
+  
+  Client.create(
+  	:name_user => name_user,
+  	:phone => phone,
+  	:barber => barber,
+  	:color => color
+  	)
+	erb "OK, username is #{name_user}, #{phone}, #{datetime}, #{barber}, #{color}"
 end
