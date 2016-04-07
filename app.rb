@@ -13,6 +13,10 @@ class Barber < ActiveRecord::Base
 
 end
 
+class Contact < ActiveRecord::Base
+
+end
+
 before do
 	@barbers = Barber.all
 end
@@ -40,3 +44,20 @@ post '/visit' do
   	)
 	erb "OK, username is #{name_user}, #{phone}, #{datetime}, #{barber}, #{color}"
 end
+
+get '/contacts' do
+  erb :contacts
+end
+
+post '/contacts' do
+  
+  email = params[:email]
+  message = params[:message]
+  Contact.create(
+  	:email => email,
+  	:content => message
+  	)
+  
+  erb "OK, to mail #{@email} send message."
+end
+
